@@ -16,13 +16,13 @@ namespace LoginWithAuthKey.Models
             ApplicationUsers.Add(new UserModel(){UserName = "Rahul",
                 Email = "r@gmail.com",
                 FullName = "Rahul Tiwari",
-                Roll = "Admin"});
+                Role = "Admin"});
             ApplicationUsers.Add(new UserModel()
             {
                 UserName = "Prakhar",
                 Email = "p@gmail.com",
                 FullName = "Prakhar Gupta",
-                Roll = "Trainee"
+                Role = "Trainee"
             });
         }
 

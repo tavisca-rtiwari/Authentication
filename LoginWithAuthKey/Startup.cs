@@ -44,19 +44,19 @@ namespace LoginWithAuthKey
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
         };
     });
-            
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(MyAllowSpecificOrigins,
-            //    builder =>
-            //    {
-            //        builder.WithOrigins("http://example.com",
-            //                            "http://www.contoso.com")
-            //                            .AllowAnyOrigin()
-            //                            .AllowAnyHeader()
-            //                            .AllowAnyMethod(); ;
-            //    });
-            //});
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://example.com",
+                                        "http://www.contoso.com")
+                                        .AllowAnyOrigin()
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod(); ;
+                });
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -83,7 +83,7 @@ namespace LoginWithAuthKey
                 app.UseHsts();
             }
 
-            app.UseCors();
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();

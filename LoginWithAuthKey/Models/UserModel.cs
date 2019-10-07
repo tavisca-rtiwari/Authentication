@@ -7,6 +7,6 @@ namespace JWTAuthentication.Controllers
     {
         [Column(TypeName = "nvarchar(150)")]
         public string FullName { get; set; }
-        public string Roll { get; set; }
+        public string Role { get; set; }
     }
 }

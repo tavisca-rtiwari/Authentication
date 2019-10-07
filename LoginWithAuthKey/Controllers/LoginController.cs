@@ -47,7 +47,7 @@ namespace JWTAuthentication.Controllers
         }
         private string GenerateJSONWebToken(UserModel userInfo)
         {
-            var role = userInfo.Roll;
+            var role = userInfo.Role;
             IdentityOptions _options = new IdentityOptions();
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -86,7 +86,7 @@ namespace JWTAuthentication.Controllers
                     UserName = "Rahul",
                     Email = "r@gmail.com",
                     FullName = "Rahul Tiwari",
-                    Roll = "Admin"
+                    Role = "Admin"
                 };
             }
             return user;
